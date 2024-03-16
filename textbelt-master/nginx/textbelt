@@ -1,0 +1,21 @@
+
+{
+"server": {
+      "server_name": ["yourdomain.com", "www.yourdomain.com"],
+      "location": {
+        "/": {
+          "proxy_pass_header": "Server",
+          "proxy_set_header": {
+            "Host": "$http_host",
+            "X-Real-IP": "$remote_addr",
+            "X-Scheme": "$scheme"
+          },
+          "proxy_redirect": "off",
+          "proxy_connect_timeout": 40,
+          "proxy_read_timeout": 40,
+          "proxy_pass": "http://localhost:9090/"
+        }
+      }
+    }
+  }
+  
